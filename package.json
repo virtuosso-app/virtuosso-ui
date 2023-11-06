@@ -12,7 +12,7 @@
     "build:admin": "(cd admin && yarn build)",
     "build:app": "(cd app && yarn build)",
     "build": "concurrently \"yarn build:admin\" \"yarn build:app\"",
-    "setup": "concurrently \"yarn install\"  \"yarn setup:admin\" \"yarn setup:app\"",
+    "setup": "yarn install && concurrently \"yarn setup:admin\" \"yarn setup:app\"",
     "setup:admin": "(cd admin && yarn install)",
     "setup:app": "(cd app && yarn install)",
     "dev": "concurrently \"yarn dev:admin\" \"yarn dev:app\"",
