@@ -1,0 +1,26 @@
+{
+  "name": "music-class-app",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pascalvaccaro/strapi-svelte.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "scripts": {
+    "app": "yarn dev --prefix ../app/",
+    "admin": "yarn dev --prefix ../admin/",
+    "clear": "cd app && rm -rf .next && rm -rf cache",
+    "setup:app": "cd app && yarn",
+    "setup:admin": "cd admin && yarn",
+    "setup": "yarn install && yarn setup:app && yarn setup:admin",
+    "dev": "yarn clear && concurrently \"cd app && yarn dev\" \"cd admin && yarn develop\"",
+    "seed": "cd admin && yarn strapi import -f ../seed-data.tar.gz",
+    "export": "cd admin && yarn strapi export --no-encrypt -f ../seed-data",
+    "repo:upstream": "git fetch upstream && git merge upstream/main"
+  },
+  "dependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
