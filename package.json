@@ -9,16 +9,12 @@
   "author": "",
   "license": "MIT",
   "scripts": {
-    "app": "yarn dev --prefix ../app/",
-    "admin": "yarn dev --prefix ../admin/",
-    "clear": "cd app && rm -rf .next && rm -rf cache",
-    "setup:app": "cd app && yarn",
-    "setup:admin": "cd admin && yarn",
-    "setup": "yarn install && yarn setup:app && yarn setup:admin",
-    "dev": "yarn clear && concurrently \"cd app && yarn dev\" \"cd admin && yarn develop\"",
-    "seed": "cd admin && yarn strapi import -f ../seed-data.tar.gz",
-    "export": "cd admin && yarn strapi export --no-encrypt -f ../seed-data",
-    "repo:upstream": "git fetch upstream && git merge upstream/main"
+    "build:admin": "(cd admin && yarn build)",
+    "build:app": "(cd app && npm run build)",
+    "build": "concurrently \"npm run build:admin\" \"npm run build:app\"",
+    "dev": "concurrently \"npm run dev:admin\" \"npm run dev:app\"",
+    "dev:admin": "(cd admin && yarn develop)",
+    "dev:app": "(cd app && yarn dev)"
   },
   "dependencies": {
     "concurrently": "^8.2.2"
