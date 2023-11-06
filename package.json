@@ -10,9 +10,12 @@
   "license": "MIT",
   "scripts": {
     "build:admin": "(cd admin && yarn build)",
-    "build:app": "(cd app && npm run build)",
-    "build": "concurrently \"npm run build:admin\" \"npm run build:app\"",
-    "dev": "concurrently \"npm run dev:admin\" \"npm run dev:app\"",
+    "build:app": "(cd app && yarn build)",
+    "build": "concurrently \"yarn build:admin\" \"yarn build:app\"",
+    "setup": "concurrently \"yarn setup:admin\" \"yarn setup:app\"",
+    "setup:admin": "(cd admin && yarn install)",
+    "setup:app": "(cd app && yarn install)",
+    "dev": "concurrently \"yarn dev:admin\" \"yarn dev:app\"",
     "dev:admin": "(cd admin && yarn develop)",
     "dev:app": "(cd app && yarn dev)"
   },
