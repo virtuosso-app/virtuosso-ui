@@ -5,3 +5,8 @@ services:
     buildCommand: npm install && npm run build
     startCommand: node build/index.js
     autoDeploy: false
+    envVars:
+      - key: NODE_VERSION
+        value: ~14.17.0
+      - key: NODE_ENV
+        value: production
