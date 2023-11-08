@@ -6,16 +6,13 @@
 </script>
 
 <div class="app">
-	<main>
-		Welcome: {data.user.username}
-		<slot />
-	</main>
+	<slot />
 </div>
 
 <style>
 	.app {
-		display: flex;
-		flex-direction: column;
-		min-height: 100vh;
+		position: absolute;
+		width: 100%;
+		height: 100%;
 	}
 </style>
